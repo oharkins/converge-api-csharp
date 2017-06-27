@@ -1,5 +1,4 @@
 ﻿using System;
-using static oharkins.ConvergAPI.TransactionClass;
 
 namespace oharkins.ConvergAPI
 {
@@ -50,9 +49,6 @@ namespace oharkins.ConvergAPI
             public string ssl_avs_response { get; set; }
             public string ssl_cvv2_response { get; set; }
             public string ssl_approval_code { get; set; }
-            public string errorCode { get; set; }
-            public string errorMessage { get; set; }
-            public string errorName { get; set; }
         }
     }
 }
