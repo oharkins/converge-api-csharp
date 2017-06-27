@@ -4,10 +4,12 @@
 
 */
 using System;
+using System.Xml.Serialization;
 using oharkins.ConvergAPI;
 
 namespace oharkins.ConvergAPI
 {
+    [XmlRoot(ElementName = "txn")]
     public class SaleRequest : ConvergeTransaction
     {
         public string ssl_transaction_type = "ccsale";
@@ -47,6 +49,7 @@ namespace oharkins.ConvergAPI
         public string ssl_add_token { get; set; } // Add to Card Manager indicator, used to indicate if you wish to generate a token and store it in Card Manager. Valid value: Y (add token) , N (do not add token) Defaulted to N
 
     }
+    [XmlRoot(ElementName = "txn")]
     public class SaleResponse : ConvergeTransaction
     {
         public string ssl_result { get; set; }

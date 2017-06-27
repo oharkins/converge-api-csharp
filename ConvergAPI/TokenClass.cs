@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Xml.Serialization;
 
 namespace oharkins.ConvergAPI
 {
@@ -7,16 +8,16 @@ namespace oharkins.ConvergAPI
 
         public TokenResponse GetToken(TokenRequest request)
         {
-            var xmldata = XMLService.Serialize<TokenRequest>(request);
+            string xmldata = XMLService.Serialize<TokenRequest>(request);
 
-            var responce = HttpService.PostItem(xmldata);
+            string response = HttpService.PostItem(xmldata);
 
-            var classfullresponce = XMLService.Deserialize<TokenResponse>(responce);
+            TokenResponse classfullresponce = XMLService.Deserialize<TokenResponse>(response);
 
             return classfullresponce;
         }
 
-
+        [XmlRoot(ElementName = "txn")]
         public class TokenRequest : ConvergeTransaction
         {
             public string ssl_transaction_type = "ccgettoken";
@@ -37,6 +38,7 @@ namespace oharkins.ConvergAPI
             public string ssl_last_name { get; set; } //Required with Add to Card Manager indicator when generating a toke from card number. 
 
         }
+        [XmlRoot(ElementName = "txn")]
         public class TokenResponse : ConvergeTransaction
         {
             public string ssl_result { get; set; }

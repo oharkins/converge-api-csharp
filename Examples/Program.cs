@@ -27,7 +27,7 @@ namespace Examples
             TC.GetToken(TR);
 
 
-            Console.WriteLine("Hello World!");
+            //Console.WriteLine("Hello World!");
         }
     }
 }

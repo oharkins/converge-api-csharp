@@ -6,18 +6,20 @@ namespace oharkins.ConvergAPI
 {
     public class XMLService
     {
-		public static string Serialize<T>(T dataToSerialize)
+		public static string Serialize<T>(T value)
 		{
-			try
+			var emptyNamepsaces = new XmlSerializerNamespaces(new[] { XmlQualifiedName.Empty });
+			var serializer = new XmlSerializer(value.GetType());
+			var settings = new XmlWriterSettings();
+            settings.Indent = false;
+			settings.OmitXmlDeclaration = true;
+            settings.NewLineOnAttributes = false;
+
+            var stream = new System.IO.StringWriter();
+			using (var writer = XmlWriter.Create(stream, settings))
 			{
-				var stringwriter = new System.IO.StringWriter();
-				var serializer = new XmlSerializer(dataToSerialize.GetType());
-				serializer.Serialize(stringwriter, dataToSerialize);
-				return stringwriter.ToString();
-			}
-			catch
-			{
-				throw;
+				serializer.Serialize(writer, value, emptyNamepsaces);
+				return stream.ToString();
 			}
 		}
 
@@ -29,8 +31,9 @@ namespace oharkins.ConvergAPI
 				var serializer = new XmlSerializer(typeof(T));
 				return (T)serializer.Deserialize(stringReader);
 			}
-			catch
+			catch (Exception e)
 			{
+                Console.WriteLine(); 
 				throw;
 			}
 		}

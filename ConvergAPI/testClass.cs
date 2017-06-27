@@ -31,7 +31,7 @@ namespace oharkins.ConvergAPI
 
 			responce = TC.GetToken(TR);
 
-            Assert.AreEqual(1,1);
+            Assert.AreEqual(responce.ssl_token_response,"SUCCESS");
         }
         [Test]
 		public void MakeSale()
