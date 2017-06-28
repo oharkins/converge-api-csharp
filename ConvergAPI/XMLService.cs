@@ -24,7 +24,7 @@ namespace oharkins.ConvergAPI
 		}
 
 		public static T Deserialize<T>(string xmlText)
-		{
+		{      
 			try
 			{
 				var stringReader = new System.IO.StringReader(xmlText);

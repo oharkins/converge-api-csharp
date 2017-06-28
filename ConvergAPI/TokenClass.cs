@@ -33,6 +33,7 @@ namespace oharkins.ConvergAPI
             public string ssl_avs_zip { get; set; }
             public string ssl_avs_address { get; set; }
             public string ssl_cvv2cvc2 { get; set; } //The credit card security code is a three-digit or four-digit number, printed either on the back or the front of the card. 
+            public string ssl_get_token { get; set; } //Generate Token indicator must be sent in order to generate tokens only. Valid values: Y (generate a token), N (do not generate token). Defaulted to N.
             public string ssl_add_token { get; set; } // Add to Card Manager indicator, used to indicate if you wish to store the token generated in Card Manager. Valid value: Y (add token), N (do not add token) Defaulted to N 
             public string ssl_first_name { get; set; } //Required with Add to Card Manager indicator when generating a toke from card number. 
             public string ssl_last_name { get; set; } //Required with Add to Card Manager indicator when generating a toke from card number. 
@@ -50,7 +51,7 @@ namespace oharkins.ConvergAPI
             public string ssl_txn_time { get; set; }
             public string ssl_avs_response { get; set; }
             public string ssl_cvv2_response { get; set; }
-            public string ssl_approval_code { get; set; }
+            public string ssl_approval_code { get; set; }            
         }
     }
 }

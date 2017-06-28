@@ -1,9 +1,12 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConvergAPI", "ConvergAPI\ConvergAPI.csproj", "{428CEDDB-E0C8-41A0-8812-530C8EA32995}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examples", "Examples\Examples.csproj", "{5BBF69D7-DCD4-4D97-842F-B8C262D1FFC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConvergAPITests", "ConvergAPITests\ConvergAPITests.csproj", "{9E01EAE7-C027-4BAB-AD71-A86E06DF2B8D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,5 +22,12 @@ Global
 		{5BBF69D7-DCD4-4D97-842F-B8C262D1FFC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BBF69D7-DCD4-4D97-842F-B8C262D1FFC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BBF69D7-DCD4-4D97-842F-B8C262D1FFC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E01EAE7-C027-4BAB-AD71-A86E06DF2B8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E01EAE7-C027-4BAB-AD71-A86E06DF2B8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E01EAE7-C027-4BAB-AD71-A86E06DF2B8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E01EAE7-C027-4BAB-AD71-A86E06DF2B8D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
