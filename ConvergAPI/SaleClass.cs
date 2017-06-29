@@ -17,9 +17,20 @@ namespace oharkins.ConvergAPI
 
             string response = HttpService.PostItem(xmldata);
 
-            SaleResponse classfullresponce = XMLService.Deserialize<SaleResponse>(response);
+            SaleResponse classfullresponse = XMLService.Deserialize<SaleResponse>(response);
 
-            return classfullresponce;
+            if (classfullresponse.errorCode != null)
+            {
+                TransactionError ex = new TransactionError("Somtheing Went Wrong")
+                {
+                    errCode = classfullresponse.errorCode,
+                    errMessage = classfullresponse.errorMessage,
+                    errName = classfullresponse.errorName
+                };
+                throw ex;
+            }
+
+            return classfullresponse;
         }
 
         [XmlRoot(ElementName = "txn")]

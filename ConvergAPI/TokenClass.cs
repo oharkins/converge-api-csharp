@@ -12,9 +12,20 @@ namespace oharkins.ConvergAPI
 
             string response = HttpService.PostItem(xmldata);
 
-            TokenResponse classfullresponce = XMLService.Deserialize<TokenResponse>(response);
+            TokenResponse classfullresponse = XMLService.Deserialize<TokenResponse>(response);
 
-            return classfullresponce;
+            if (classfullresponse.errorCode != null)
+            {
+                TransactionError ex = new TransactionError("Somtheing Went Wrong")
+                {
+                    errCode = classfullresponse.errorCode,
+                    errMessage = classfullresponse.errorMessage,
+                    errName = classfullresponse.errorName
+                };
+                throw ex;
+            }
+
+            return classfullresponse;
         }
 
         [XmlRoot(ElementName = "txn")]
@@ -33,6 +44,7 @@ namespace oharkins.ConvergAPI
             public string ssl_avs_zip { get; set; }
             public string ssl_avs_address { get; set; }
             public string ssl_cvv2cvc2 { get; set; } //The credit card security code is a three-digit or four-digit number, printed either on the back or the front of the card. 
+            public string ssl_cvv2cvc2_indicator { get; set; } //CVV2 Presence in Authorization Request: 0 = CVV2 not included; 1 = CVV2 included; 2 = Customer has stated CVV2 is illegible; 9 = Customer has stated CVV2 is not on the card.
             public string ssl_get_token { get; set; } //Generate Token indicator must be sent in order to generate tokens only. Valid values: Y (generate a token), N (do not generate token). Defaulted to N.
             public string ssl_add_token { get; set; } // Add to Card Manager indicator, used to indicate if you wish to store the token generated in Card Manager. Valid value: Y (add token), N (do not add token) Defaulted to N 
             public string ssl_first_name { get; set; } //Required with Add to Card Manager indicator when generating a toke from card number. 
@@ -50,7 +62,7 @@ namespace oharkins.ConvergAPI
             public string ssl_txn_id { get; set; }
             public string ssl_txn_time { get; set; }
             public string ssl_avs_response { get; set; }
-            public string ssl_cvv2_response { get; set; }
+            public string ssl_cvv2_response { get; set; } // M = Match; N = No match(possible fraud); P = Not Processed(technical error, check and resubmit); S = CVV2 should be on card; U = The issuer does not participate in CVV2.
             public string ssl_approval_code { get; set; }            
         }
     }

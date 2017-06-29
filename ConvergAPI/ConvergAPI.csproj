@@ -40,6 +40,7 @@
     <Compile Include="SaleClass.cs" />
     <Compile Include="TransactionClass.cs" />
     <Compile Include="TokenClass.cs" />
+    <Compile Include="TransactionException.cs" />
     <Compile Include="XMLService.cs" />
     <Compile Include="HttpService.cs" />
     <Compile Include="testClass.cs" />

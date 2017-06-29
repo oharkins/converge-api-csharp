@@ -33,7 +33,7 @@ namespace oharkins.ConvergAPI
 			}
 			catch (Exception e)
 			{
-                Console.WriteLine(); 
+                Console.WriteLine(e.Message); 
 				throw;
 			}
 		}
