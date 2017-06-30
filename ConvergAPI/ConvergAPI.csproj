@@ -44,7 +44,6 @@
     <Compile Include="TransactionException.cs" />
     <Compile Include="XMLService.cs" />
     <Compile Include="HttpService.cs" />
-    <Compile Include="testClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
